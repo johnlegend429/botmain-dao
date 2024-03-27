@@ -3,6 +3,7 @@ import hre from "hardhat";
 import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
 
 export default buildModule("BotmainToken", (m) => {
+
   const token = m.contract("BotmainToken", ["BotmainToken", "BOT", 18]);
 
   return { token };
@@ -11,6 +12,7 @@ export default buildModule("BotmainToken", (m) => {
 
 async function main() {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
+  
   const unlockTime = BigInt(currentTimestampInSeconds + 60);
 
   const lockedAmount = parseEther("0.001");
